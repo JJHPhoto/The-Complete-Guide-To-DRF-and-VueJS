@@ -9,36 +9,30 @@
 </head>
 <body>
   <div id="app">
-
-
+    <p v-if="error" class="mt-2 text-center">{{error}}</p>
     <div class="row justify-content-center mt-3">
-      <div class="col-5">
-
-        <p>Write a message</p>
-        <textarea v-model="text" class="form-control" placeholder="Write something!" cols="60" rows="5"></textarea>
+      <div class="col-10">
+        <form @submit.prevent="onSubmit">
+          <div class="form-group">
+            <label for="comment-text">Publish a comment!</label>
+            <textarea v-model="comment" class="form-control" id="comment-text" cols="80" rows="5"></textarea>
+            <br>
+            <button class="btn btn-sm btn-primary" type="submit">Publish</button>
+          </div>
+        </form>
       </div>
+    </div>
 
-      <div class="col-5">
-        <p>Message</p>
-        <p>{{text}}</p>
+    <div class="row justify-content-center mt-3">
+      <div class="col-10">
+        <div class="card mt-1" v-for="comment in comments">
+          <div class="card-body">
+            {{comment }}
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="row justify-content-center mt-3">
-      <input type="checkbox" id="checkbox" v-model="checked">
-      <label for="checkbox">&nbsp;&nbsp; Value: {{checked}}</label>
-    </div>
-
-    <div class="row justify-content-center mt-3">
-      <select v-model="city">
-        <option>Beijing</option>
-        <option>Seattle</option>
-        <option>Canberra</option>
-        <option>Hong Kong</option>
-        <option>Atlanta</option>
-      </select>
-      <span>&nbsp;&nbsp; City: {{city}}</span>
-    </div>
   </div>
   
   <script src="https://unpkg.com/vue@3"></script>
