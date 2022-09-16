@@ -33,7 +33,7 @@ app.component("comment", {
   template: `
     <div>
       <div class="card-body">
-        <p>{{ comment.username }}</p>
+        <strong> <p>{{ comment.username }}</p> </strong>
         <p>{{ comment.content }}</p>
       </div>
       <hr>    
